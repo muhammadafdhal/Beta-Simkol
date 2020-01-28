@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\dosen;
+use App\jadwal_pelajaran;
 use Faker\Generator as Faker;
 
-$factory->define(dosen::class, function (Faker $faker) {
+$factory->define(jadwal_pelajaran::class, function (Faker $faker) {
     return [
         //
     ];

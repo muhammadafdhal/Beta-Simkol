@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDosensTable extends Migration
+class CreateMaterisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateDosensTable extends Migration
      */
     public function up()
     {
-        Schema::create('dosens', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nama');
-            $table->string('nip');
-            $table->string('sex');
-            $table->string('alamat');
+        Schema::create('materis', function (Blueprint $table) {
+            $table->bigIncrements('mt_id');
+            $table->bigInteger('mt_gr_id');
+            $table->string('mt_judul');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -31,6 +28,6 @@ class CreateDosensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dosens');
+        Schema::dropIfExists('materis');
     }
 }

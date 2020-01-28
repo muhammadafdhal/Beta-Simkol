@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\ruangan;
+use App\bukutamu;
 use Illuminate\Http\Request;
 
-class RuanganController extends Controller
+class BukutamuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class RuanganController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\ruangan  $ruangan
+     * @param  \App\bukutamu  $bukutamu
      * @return \Illuminate\Http\Response
      */
-    public function show(ruangan $ruangan)
+    public function show(bukutamu $bukutamu)
     {
         //
     }
@@ -52,10 +52,10 @@ class RuanganController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ruangan  $ruangan
+     * @param  \App\bukutamu  $bukutamu
      * @return \Illuminate\Http\Response
      */
-    public function edit(ruangan $ruangan)
+    public function edit(bukutamu $bukutamu)
     {
         //
     }
@@ -64,10 +64,10 @@ class RuanganController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ruangan  $ruangan
+     * @param  \App\bukutamu  $bukutamu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ruangan $ruangan)
+    public function update(Request $request, bukutamu $bukutamu)
     {
         //
     }
@@ -75,10 +75,10 @@ class RuanganController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ruangan  $ruangan
+     * @param  \App\bukutamu  $bukutamu
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ruangan $ruangan)
+    public function destroy(bukutamu $bukutamu)
     {
         //
     }
