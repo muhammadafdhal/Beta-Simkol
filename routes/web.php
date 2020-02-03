@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
+// Route::get('/', 'DashboardController@index')->name('dashboard');
 
 Auth::routes();
 
