@@ -15,6 +15,8 @@ class BukutamuController extends Controller
     public function index()
     {
         //
+        $tamu = bukutamu::all();
+        return view('buku-tamu.index', compact('tamu'));
     }
 
     /**
