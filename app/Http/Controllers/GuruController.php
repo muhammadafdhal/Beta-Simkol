@@ -30,7 +30,7 @@ class GuruController extends Controller
         $guru = new user();
         $guru->email=$request['email'];
         $guru->username=$request['username'];
-        $guru->password=Hash::make(request['password']);
+        $guru->password=Hash::make($request['password']);
         $guru->us_nip_nisn=$request['us_nip_nisn'];
         $guru->name=$request['name'];
         $guru->us_jk=$request['us_jk'];
