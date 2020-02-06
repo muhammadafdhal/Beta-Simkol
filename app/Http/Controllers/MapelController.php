@@ -15,6 +15,8 @@ class MapelController extends Controller
     public function index()
     {
         //
+        $mapel = mapel::all();
+        return view('mata-pelajaran.index',compact('mapel'));
     }
 
     /**
@@ -25,6 +27,8 @@ class MapelController extends Controller
     public function create()
     {
         //
+        $mapel = mapel::all();
+        return view('mata-pelajaran.create', compact('mapel'));
     }
 
     /**
@@ -36,6 +40,11 @@ class MapelController extends Controller
     public function store(Request $request)
     {
         //
+        $mapel = new mapel;
+        $mapel->mp_nama = $request['mp_nama'];
+        $mapel->mp_ket = $request['mp_ket'];
+        $mapel->save();
+        return redirect('/mata-pelajaran');
     }
 
     /**
@@ -55,9 +64,11 @@ class MapelController extends Controller
      * @param  \App\mapel  $mapel
      * @return \Illuminate\Http\Response
      */
-    public function edit(mapel $mapel)
+    public function edit($mp_id)
     {
         //
+        $mapel = mapel::find($mp_id);
+        return view('mata-pelajaran.edit', compact('mapel'));
     }
 
     /**
@@ -67,9 +78,14 @@ class MapelController extends Controller
      * @param  \App\mapel  $mapel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, mapel $mapel)
+    public function update(Request $request,  $mp_id)
     {
         //
+        $mapel = mapel::find($mp_id);
+        $mapel->mp_nama = $request['mp_nama'];
+        $mapel->mp_ket = $request['mp_ket'];
+        $mapel->save();
+        return redirect('/mata-pelajaran');
     }
 
     /**
@@ -78,8 +94,12 @@ class MapelController extends Controller
      * @param  \App\mapel  $mapel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(mapel $mapel)
+    public function destroy(mapel $mp_id)
     {
         //
+        $mapel = mapel::find($mp_id);
+        $mapel->destroy();
+        return redirect('/mata-pelajaran');
+
     }
 }
