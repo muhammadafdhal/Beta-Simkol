@@ -7,8 +7,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/guru', 'GuruController@index')->name('guru');
-
-Route::get('/siswa', 'SiswaController@index')->name('siswa');
-Route::get('/siswa/tambah', 'SiswaController@create')->name('siswa');
-Route::post('addPost', 'SiswaController@addPost');
+Route::resource('/guru', 'GuruController');
+Route::resource('/siswa', 'SiswaController');
+Route::resource('/tamu', 'BukutamuController');
