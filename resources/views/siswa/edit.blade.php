@@ -91,7 +91,7 @@
                 </div>
                 
                 <button type="submit" class="btn waves-effect waves-light btn-success">Save</button>
-                <a href="/guru" class="btn waves-effect waves-light btn-danger">Kembali</a>
+                <a href="/materi" class="btn waves-effect waves-light btn-danger">Kembali</a>
             </form>
         </div>
     </div>
