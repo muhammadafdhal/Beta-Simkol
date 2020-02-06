@@ -10,3 +10,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/guru', 'GuruController');
 Route::resource('/siswa', 'SiswaController');
 Route::resource('/tamu', 'BukutamuController');
+Route::resource('/materi', 'MateriController');
+Route::resource('/mata-pelajaran', 'MapelController');
