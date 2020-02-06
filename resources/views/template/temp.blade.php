@@ -9,21 +9,21 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
     <title>Material Pro Admin Template - The Most Complete & Trusted Bootstrap 4 Admin Template</title>
     <!-- Bootstrap Core CSS -->
-    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- chartist CSS -->
-    <link href="assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
-    <link href="assets/plugins/chartist-js/dist/chartist-init.css" rel="stylesheet">
-    <link href="assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <link href="{{ asset('assets/plugins/chartist-js/dist/chartist.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/plugins/chartist-js/dist/chartist-init.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css') }}" rel="stylesheet">
     <!--This page css - Morris CSS -->
-    <link href="assets/plugins/c3-master/c3.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/plugins/c3-master/c3.min.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <!-- You can change the theme colors from here -->
-    <link href="css/colors/blue.css" id="theme" rel="stylesheet">
+    <link href="{{ asset('css/colors/blue.css') }}" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -57,16 +57,16 @@
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <img src="{{ asset('assets/images/logo-icon.png') }}" alt="homepage" class="dark-logo" />
                             <!-- Light Logo icon -->
-                            <img src="../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                            <img src="{{ asset('assets/images/logo-light-icon.png') }}" alt="homepage" class="light-logo" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
                             <!-- dark Logo text -->
-                            <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                            <img src="{{ asset('assets/images/logo-text.png') }}" alt="homepage" class="dark-logo" />
                             <!-- Light Logo text -->
-                            <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span>
+                            <img src="{{ asset('assets/images/logo-light-text.png') }}" class="light-logo" alt="homepage" /></span>
                     </a>
                 </div>
                 <!-- ============================================================== -->
@@ -110,16 +110,16 @@
                                             <div class="carousel-inner" role="listbox">
                                                 <div class="carousel-item active">
                                                     <div class="container"> <img class="d-block img-fluid"
-                                                            src="../assets/images/big/img1.jpg" alt="First slide"></div>
+                                                            src="{{ asset('assets/images/big/img1.jpg') }}" alt="First slide"></div>
                                                 </div>
                                                 <div class="carousel-item">
                                                     <div class="container"><img class="d-block img-fluid"
-                                                            src="../assets/images/big/img2.jpg" alt="Second slide">
+                                                            src="{{ asset('assets/images/big/img2.jpg') }}" alt="Second slide">
                                                     </div>
                                                 </div>
                                                 <div class="carousel-item">
                                                     <div class="container"><img class="d-block img-fluid"
-                                                            src="../assets/images/big/img3.jpg" alt="Third slide"></div>
+                                                            src="{{ asset('assets/images/big/img3.jpg') }}" alt="Third slide"></div>
                                                 </div>
                                             </div>
                                             <a class="carousel-control-prev" href="#carouselExampleControls"
@@ -451,7 +451,8 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="nav-small-cap">PERSONAL</li>
-                        <li> <a href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
+                        <li> <a href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
+                                    class="hide-menu">Dashboard </span></a>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
                                     class="mdi mdi-laptop-windows"></i><span class="hide-menu">Data Master</span></a>
@@ -674,34 +675,94 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="assets/plugins/jquery/jquery.min.js"></script>
+    <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="assets/plugins/bootstrap/js/popper.min.js"></script>
-    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ asset('assets/plugins/bootstrap/js/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
 
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="js/jquery.slimscroll.js"></script>
+    <script src="{{ asset('js/jquery.slimscroll.js') }}"></script>
     <!--Wave Effects -->
-    <script src="js/waves.js"></script>
+    <script src="{{ asset('js/waves.js') }}"></script>
     <!--Menu sidebar -->
-    <script src="js/sidebarmenu.js"></script>
+    <script src="{{ asset('js/sidebarmenu.js') }}"></script>
     <!--stickey kit -->
-    <script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
-    <script src="assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="{{ asset('assets/plugins/sticky-kit-master/dist/sticky-kit.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/sparkline/jquery.sparkline.min.js') }}"></script>
 
     <!--Custom JavaScript -->
-    <script src="js/custom.min.js"></script>
+    <script src="{{ asset('js/custom.min.js') }}"></script>
     <!-- ============================================================== -->
     <!-- This page plugins -->
     <!-- ============================================================== -->
     <!-- chartist chart -->
-    <script src="assets/plugins/chartist-js/dist/chartist.min.js"></script>
-    <script src="assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="{{ asset('assets/plugins/chartist-js/dist/chartist.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js') }}"></script>
     <!--c3 JavaScript -->
-    <script src="assets/plugins/d3/d3.min.js"></script>
-    <script src="assets/plugins/c3-master/c3.min.js"></script>
+    <script src="{{ asset('assets/plugins/d3/d3.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/c3-master/c3.min.js') }}"></script>
     <!-- Chart JS -->
-    <script src="js/dashboard1.js"></script>
+    <script src="{{ asset('js/dashboard1.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <!-- start - This is for export functionality only -->
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+            $(document).ready(function () {
+                var table = $('#example').DataTable({
+                    "columnDefs": [{
+                        "visible": false,
+                        "targets": 2
+                    }],
+                    "order": [
+                        [2, 'asc']
+                    ],
+                    "displayLength": 25,
+                    "drawCallback": function (settings) {
+                        var api = this.api();
+                        var rows = api.rows({
+                            page: 'current'
+                        }).nodes();
+                        var last = null;
+                        api.column(2, {
+                            page: 'current'
+                        }).data().each(function (group, i) {
+                            if (last !== group) {
+                                $(rows).eq(i).before(
+                                    '<tr class="group"><td colspan="5">' +
+                                    group + '</td></tr>');
+                                last = group;
+                            }
+                        });
+                    }
+                });
+                // Order by the grouping
+                $('#example tbody').on('click', 'tr.group', function () {
+                    var currentOrder = table.order()[0];
+                    if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                        table.order([2, 'desc']).draw();
+                    } else {
+                        table.order([2, 'asc']).draw();
+                    }
+                });
+            });
+        });
+        $('#example23').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+
+    </script>
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
