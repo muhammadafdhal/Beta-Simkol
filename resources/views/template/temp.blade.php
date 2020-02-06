@@ -462,35 +462,35 @@
                                 <li><a href="/tamu">Tamu</a></li>
                             </ul>
                         </li>
-                        <li> <a href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Mata
+                        <li> <a href="/mata-pelajaran" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Mata
                                     Pelajaran </span></a>
                         </li>
 
-                        <li> <a href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
+                        <li> <a href="/materi" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
                                     class="hide-menu">Materi </span></a>
                         </li>
 
-                        <li> <a href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
+                        <li> <a href="/jadwal" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
                                     class="hide-menu">Jadwal Pelajaran </span></a>
                         </li>
 
-                        <li> <a href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
+                        <li> <a href="/absen-siswa" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
                                     class="hide-menu">Absen Siswa </span></a>
                         </li>
 
-                        <li> <a href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
+                        <li> <a href="/kelas" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
                                     class="hide-menu">Kelas </span></a>
                         </li>
 
-                        <li> <a href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
+                        <li> <a href="/nilai" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
                                     class="hide-menu">Nilai </span></a>
                         </li>
 
-                        <li> <a href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Info
+                        <li> <a href="/info-sekolah" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Info
                                     Sekolah </span></a>
                         </li>
 
-                        <li> <a href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
+                        <li> <a href="/galeri" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
                                     class="hide-menu">Galeri </span></a>
                         </li>
 
