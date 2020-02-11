@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\galeri;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class GaleriController extends Controller
 {
@@ -15,6 +18,8 @@ class GaleriController extends Controller
     public function index()
     {
         //
+        $galeri = galeri::all();
+        return view('galeri.index', compact('galeri'));
     }
 
     /**
@@ -25,6 +30,8 @@ class GaleriController extends Controller
     public function create()
     {
         //
+        $galeri = galeri::all();
+        return view('galeri.create', compact('galeri'));
     }
 
     /**
@@ -36,6 +43,18 @@ class GaleriController extends Controller
     public function store(Request $request)
     {
         //
+        $file=$request->file('gl_gambar');
+        $content=File::get($file);
+        $ekstensi=$file->getClientOriginalExtension();
+        $namafile='gl'.Auth::user()->id.'-'.time().'.'.$ekstensi;
+        $glfile=url("storage/gl/{$namafile}");
+        Storage::disk('local')->put('galeri/'.$namafile, $content);
+
+        $galeri = new galeri;
+        $galeri->gl_judul = $request['gl_judul'];
+        $galeri->gl_gambar = $glfile;
+        $galeri->save();
+        return redirect('/galeri');
     }
 
     /**
@@ -78,8 +97,11 @@ class GaleriController extends Controller
      * @param  \App\galeri  $galeri
      * @return \Illuminate\Http\Response
      */
-    public function destroy(galeri $galeri)
+    public function destroy( $gl_id)
     {
         //
+        $galeri = galeri::find($gl_id);
+        $galeri->delete();
+        return redirect('/galeri');
     }
 }
