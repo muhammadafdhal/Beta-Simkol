@@ -474,7 +474,7 @@
                                     class="hide-menu">Jadwal Pelajaran </span></a>
                         </li>
 
-                        <li> <a href="/absen-siswa" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
+                        <li> <a href="/absen" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
                                     class="hide-menu">Absen Siswa </span></a>
                         </li>
 
@@ -486,7 +486,7 @@
                                     class="hide-menu">Nilai </span></a>
                         </li>
 
-                        <li> <a href="/info-sekolah" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Info
+                        <li> <a href="/informasi" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Info
                                     Sekolah </span></a>
                         </li>
 
@@ -694,6 +694,7 @@
     <script src="{{ asset('js/custom.min.js') }}"></script>
     <!-- ============================================================== -->
     <!-- This page plugins -->
+    <script src="{{asset('js/jasny-bootstrap.js') }}"></script>
     <!-- ============================================================== -->
     <!-- chartist chart -->
     <script src="{{ asset('assets/plugins/chartist-js/dist/chartist.min.js') }}"></script>
