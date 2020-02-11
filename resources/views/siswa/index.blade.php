@@ -8,7 +8,7 @@
         <div class="table-responsive m-t-40">
             <div class="row button-group">
                 <div class="col-lg-2 col-md-4">
-                    <a href="{{route('siswa.create')}}" class="btn btn-rounded btn-block btn-info">Tambah Guru</a>
+                    <a href="{{route('siswa.create')}}" class="btn btn-rounded btn-info">Tambah Siswa</a>
                 </div>
             </div>
             <table id="myTable" class="table table-bordered table-striped">
@@ -20,7 +20,7 @@
                         <th>Nama Lengkap</th>
                         <th>Jenis Kelamin</th>
                         <th>Agama</th>
-                        <th>Id Kelas</th>
+                        <th>Kelas</th>
                         <th>Tempat Lahir</th>
                         <th>Tanggal Lahir</th>
                         <th>Nama Ortu</th>
@@ -42,7 +42,7 @@
                         <td>{{$t->name}}</td>
                         <td>{{$t->us_jk}}</td>
                         <td>{{$t->us_agama}}</td>
-                        <td>Kelas</td>
+                        <td>{{$t->kls_kelas}}</td>
                         <td>{{$t->us_tmp_lahir}}</td>
                         <td>{{$t->us_tgl_lahir}}</td>
                         <td>{{$t->us_sw_nama_ortu}}</td>
