@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\user;
+use App\mapel;
 use Hash;
 
 class GuruController extends Controller
@@ -12,7 +13,7 @@ class GuruController extends Controller
     public function index()
     {
         //
-        $guru = user::where('us_level', 'Guru')->get();
+        $guru = user::join('mapels','mp_id','us_mp_id')->where('us_level', 'Guru')->get();
         return view('guru.index', compact('guru'));
     }
 
@@ -20,7 +21,8 @@ class GuruController extends Controller
     {
         //
         $guru = user ::all();
-        return view('guru.create', compact('guru'));
+        $mapel = mapel::all();
+        return view('guru.create', compact('guru','mapel'));
     }
 
     
@@ -40,6 +42,7 @@ class GuruController extends Controller
         $guru->us_tlp=$request['us_tlp'];
         $guru->us_keterangan=$request['us_keterangan'];
         $guru->us_level='Guru';
+        $guru->us_mp_id=$request['us_mp_id'];
         $guru->save();
         return redirect('/guru');
 
@@ -58,7 +61,8 @@ class GuruController extends Controller
     {
         //
         $guru = user::find($id);
-        return view('guru.edit', compact('guru'));
+        $mapel = mapel::all();
+        return view('guru.edit', compact('guru','mapel'));
     }
 
     
@@ -77,6 +81,7 @@ class GuruController extends Controller
         $guru->us_alamat=$request['us_alamat'];
         $guru->us_tlp=$request['us_tlp'];
         $guru->us_keterangan=$request['us_keterangan'];
+        $guru->us_mp_id=$request['us_mp_id'];
         $guru->save();
         return redirect('/guru');
     }
