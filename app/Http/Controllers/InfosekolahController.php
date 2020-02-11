@@ -15,6 +15,8 @@ class InfosekolahController extends Controller
     public function index()
     {
         //
+        $informasi = infosekolah::all();
+        return view('informasi.index', compact('informasi'));
     }
 
     /**
@@ -25,6 +27,8 @@ class InfosekolahController extends Controller
     public function create()
     {
         //
+        $informasi = infosekolah::all();
+        return view('informasi.create', compact('informasi'));
     }
 
     /**
@@ -36,6 +40,11 @@ class InfosekolahController extends Controller
     public function store(Request $request)
     {
         //
+        $informasi = new infosekolah;
+        $informasi->is_judul = $request['is_judul'];
+        $informasi->is_isi = $request['is_isi'];
+        $informasi->save();
+        return redirect('/informasi');
     }
 
     /**
@@ -55,9 +64,11 @@ class InfosekolahController extends Controller
      * @param  \App\infosekolah  $infosekolah
      * @return \Illuminate\Http\Response
      */
-    public function edit(infosekolah $infosekolah)
+    public function edit( $is_id)
     {
         //
+        $informasi = infosekolah::find($is_id);
+        return view('informasi.edit', compact('informasi'));
     }
 
     /**
@@ -67,9 +78,14 @@ class InfosekolahController extends Controller
      * @param  \App\infosekolah  $infosekolah
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, infosekolah $infosekolah)
+    public function update(Request $request,  $is_id)
     {
         //
+        $informasi = infosekolah::find($is_id);
+        $informasi->is_judul = $request['is_judul'];
+        $informasi->is_isi = $request['is_isi'];
+        $informasi->save();
+        return redirect('/informasi');
     }
 
     /**
@@ -78,8 +94,11 @@ class InfosekolahController extends Controller
      * @param  \App\infosekolah  $infosekolah
      * @return \Illuminate\Http\Response
      */
-    public function destroy(infosekolah $infosekolah)
+    public function destroy( $is_id)
     {
         //
+        $informasi = infosekolah::find($is_id);
+        $informasi->destroy();
+        return redirect('/informasi');
     }
 }
