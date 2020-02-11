@@ -90,10 +90,16 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="example-password-input" class="col-2 col-form-label">Id Mapel</label>
+                    <label for="example-month-input" class="col-2 col-form-label">Mata Pelajaran</label>
                     <div class="col-10">
-                        <input class="form-control" value="{{$guru->us_id_mapel}}" type="text" placeholder="Id Mapel" name="us_id_mapel"
-                            id="example-password-input" disabled>
+                        <select class="custom-select col-12" name="us_mp_id" id="inlineFormCustomSelect">
+                            <option selected="" value="">Silahkan Pilih</option>
+
+                            @foreach ($mapel as $t)
+                            <option value="{{$t->mp_id}}"<?php if($t->mp_id == $guru->us_mp_id) {echo "selected";} ?>>{{$t->mp_nama}}</option>
+                            @endforeach
+
+                        </select>
                     </div>
                 </div>
                 <div class="form-group row">

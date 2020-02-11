@@ -6,7 +6,7 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Tambah Data guru</h4>
-            
+
             <form class="form" action="{{route('guru.store')}}" method="POST">
                 @csrf
                 <div class="form-group m-t-40 row">
@@ -90,10 +90,16 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="example-password-input" class="col-2 col-form-label">Id Mapel</label>
+                    <label for="example-month-input" class="col-2 col-form-label">Mata Pelajaran</label>
                     <div class="col-10">
-                        <input class="form-control" type="text" placeholder="Id Mapel" name="us_id_mapel"
-                            id="example-password-input" disabled>
+                        <select class="custom-select col-12" name="us_mp_id" id="inlineFormCustomSelect">
+                            <option selected="" value="">Silahkan Pilih</option>
+
+                            @foreach ($mapel as $t)
+                            <option value="{{$t->mp_id}}">{{$t->mp_nama}}</option>
+                            @endforeach
+
+                        </select>
                     </div>
                 </div>
                 <div class="form-group row">

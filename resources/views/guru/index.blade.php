@@ -23,7 +23,7 @@
                         <th>Golongan</th>
                         <th>Alamat</th>
                         <th>Telepon</th>
-                        <th>id mapel</th>
+                        <th>Mata Pelajaran</th>
                         <th>Keterangan</th>
                         <th>Aksi</th>
                     </tr>
@@ -43,7 +43,7 @@
                         <td>{{$t->us_gr_golongan}}</td>
                         <td>{{$t->us_alamat}}</td>
                         <td>{{$t->us_tlp}}</td>
-                        <td>mapel</td>
+                        <td>{{$t->mp_nama}}</td>
                         <td>{{$t->us_keterangan}}</td>
                         <td class="datatable-ct">
                             <a href="{{ route('guru.edit', $t->id) }}" class="btn btn-info">Edit</a>
