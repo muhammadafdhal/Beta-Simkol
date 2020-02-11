@@ -15,6 +15,8 @@ class KelasController extends Controller
     public function index()
     {
         //
+        $kelas = kelas::all();
+        return view('kelas.index', compact('kelas'));
     }
 
     /**
@@ -25,6 +27,8 @@ class KelasController extends Controller
     public function create()
     {
         //
+        $kelas = kelas::all();
+        return view('kelas.create', compact('kelas'));
     }
 
     /**
@@ -36,6 +40,10 @@ class KelasController extends Controller
     public function store(Request $request)
     {
         //
+        $kelas = new kelas;
+        $kelas->kls_kelas = $request['kls_kelas'];
+        $kelas->save();
+        return redirect('/kelas');
     }
 
     /**
@@ -55,9 +63,11 @@ class KelasController extends Controller
      * @param  \App\kelas  $kelas
      * @return \Illuminate\Http\Response
      */
-    public function edit(kelas $kelas)
+    public function edit( $kls_id)
     {
         //
+        $kelas = kelas::find($kls_id);
+        return view('kelas.edit', compact('kelas'));
     }
 
     /**
@@ -67,9 +77,13 @@ class KelasController extends Controller
      * @param  \App\kelas  $kelas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, kelas $kelas)
+    public function update(Request $request, $kls_id)
     {
         //
+        $kelas = kelas::find($kls_id);
+        $kelas->kls_kelas = $request['kls_kelas'];
+        $kelas->save();
+        return redirect('/kelas');
     }
 
     /**
