@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\user;
+use App\siswa;
+use App\kelas;
 use Hash;
 
 use Illuminate\Http\Request;
@@ -12,15 +14,17 @@ class SiswaController extends Controller
     public function index()
     {
         //
-        $siswa = user::where('us_level', 'siswa')->get();
-        return view('siswa.index', compact('siswa'));
+        $siswa = user::join('kelas','kls_id','us_sw_kls_id')->where('us_level', 'siswa')->get();
+        $kelas = kelas::all();
+        return view('siswa.index', compact('siswa','kelas'));
     }
 
     public function create()
     {
         //
-        $siswa = user::all();
-        return view('siswa.create', compact('siswa'));
+        $siswa = user::join('kelas','kls_id','us_sw_kls_id')->get();
+        $kelas = kelas::all();
+        return view('siswa.create', compact('siswa','kelas'));
     }
 
     
@@ -28,6 +32,7 @@ class SiswaController extends Controller
     {
         //
         $siswa = new user;
+        $siswa->us_sw_kls_id = $request['us_sw_kls_id'];
         $siswa->us_nip_nisn=$request['us_nip_nisn'];
         $siswa->name = $request['name'];
         $siswa->us_jk = $request['us_jk'];
@@ -41,6 +46,7 @@ class SiswaController extends Controller
         $siswa->email = $request['email'];
         $siswa->username = $request['username'];
         $siswa->password = Hash::make($request['password']);
+        $siswa->us_tlp = $request['us_tlp'];
         $siswa->save();
         return redirect('/siswa');
 
@@ -57,7 +63,8 @@ class SiswaController extends Controller
     {
         //
         $siswa = user::find($id);
-        return view('siswa.edit', compact('siswa'));
+        $kelas = kelas::all();
+        return view('siswa.edit', compact('siswa','kelas'));
     }
 
     
@@ -65,6 +72,7 @@ class SiswaController extends Controller
     {
         //
         $siswa = user::find($id);
+        $siswa->us_sw_kls_id = $request['us_sw_kls_id'];
         $siswa->us_nip_nisn=$request['us_nip_nisn'];
         $siswa->name = $request['name'];
         $siswa->us_jk = $request['us_jk'];
@@ -75,6 +83,7 @@ class SiswaController extends Controller
         $siswa->us_alamat = $request['us_alamat'];
         $siswa->us_keterangan = $request['us_keterangan'];
         $siswa->us_level = 'Siswa';
+        $siswa->us_tlp = $request['us_tlp'];
         $siswa->save();
         return redirect('/siswa');
     }
