@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\absensiswa;
+use App\user;
 use Illuminate\Http\Request;
 
 class AbsensiswaController extends Controller
@@ -15,6 +16,8 @@ class AbsensiswaController extends Controller
     public function index()
     {
         //
+        $absen = absensiswa::join('users','id','abs_sw_id')->get();
+        return view('absen.index', compact('absen'));
     }
 
     /**
@@ -25,6 +28,9 @@ class AbsensiswaController extends Controller
     public function create()
     {
         //
+        $absen = absensiswa::join('users','id','abs_sw_id')->get();
+        $siswa = user::where('us_level','Siswa')->get();
+        return view('absen.create', compact('absen','siswa'));
     }
 
     /**
@@ -36,6 +42,14 @@ class AbsensiswaController extends Controller
     public function store(Request $request)
     {
         //
+        $absen = new absensiswa;
+        $absen->abs_sw_id = $request['abs_sw_id'];
+        $absen->abs_sakit = $request['abs_sakit'];
+        $absen->abs_izin = $request['abs_izin'];
+        $absen->abs_alpha = $request['abs_alpha'];
+        $absen->abs_ket = $request['abs_ket'];
+        $absen->save();
+        return redirect('/absen');
     }
 
     /**
