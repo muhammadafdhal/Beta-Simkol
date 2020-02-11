@@ -17,6 +17,18 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label for="example-month-input" class="col-2 col-form-label">Kelas</label>
+                    <div class="col-10">
+                        <select class="custom-select col-12" name="us_sw_kls_id" id="inlineFormCustomSelect">
+                            <option selected="" value="">Silahkan Pilih</option>
+
+                            @foreach ($kelas as $t)
+                            <option value="{{$t->kls_id}}"<?php if($t->kls_id == $siswa->us_sw_kls_id) {echo "selected";} ?>>{{$t->kls_kelas}}</option>
+                            @endforeach 
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label for="example-search-input" class="col-2 col-form-label">Nama Lengkap</label>
                     <div class="col-10">
                         <input class="form-control" type="text" placeholder="Nama Lengkap" value="{{$siswa->name}}" name="name"
@@ -91,7 +103,7 @@
                 </div>
                 
                 <button type="submit" class="btn waves-effect waves-light btn-success">Save</button>
-                <a href="/materi" class="btn waves-effect waves-light btn-danger">Kembali</a>
+                <a href="/siswa" class="btn waves-effect waves-light btn-danger">Kembali</a>
             </form>
         </div>
     </div>
