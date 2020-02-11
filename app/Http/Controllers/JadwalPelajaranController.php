@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\jadwal_pelajaran;
+use App\user;
+use App\kelas;
 use Illuminate\Http\Request;
 
 class JadwalPelajaranController extends Controller
@@ -15,6 +17,8 @@ class JadwalPelajaranController extends Controller
     public function index()
     {
         //
+        $jadwal = jadwal_pelajaran::join('kelas','kls_id','=','jadwal_pelajarans.jad_kls_id')->join('users','id','=','jadwal_pelajarans.jad_gr_id')->get();
+        return view('jadwal.index', compact('jadwal'));
     }
 
     /**
@@ -25,6 +29,10 @@ class JadwalPelajaranController extends Controller
     public function create()
     {
         //
+        $jadwal = jadwal_pelajaran::join('kelas','kls_id','=','jadwal_pelajarans.jad_kls_id')->join('users','id','=','jadwal_pelajarans.jad_gr_id')->get();
+        $guru = user::where('us_level', 'Guru')->get();
+        $kelas = kelas::all();
+        return view('jadwal.create', compact('jadwal','guru','kelas'));
     }
 
     /**
@@ -36,6 +44,13 @@ class JadwalPelajaranController extends Controller
     public function store(Request $request)
     {
         //
+        $jadwal = new jadwal_pelajaran;
+        $jadwal->jad_kls_id = $request['jad_kls_id'];
+        $jadwal->jad_gr_id = $request['jad_gr_id'];
+        $jadwal->jad_hari = $request['jad_hari'];
+        $jadwal->jad_jam_pelajaran = $request['jad_jam_pelajaran'];
+        $jadwal->save();
+        return redirect('/jadwal');
     }
 
     /**
@@ -55,9 +70,13 @@ class JadwalPelajaranController extends Controller
      * @param  \App\jadwal_pelajaran  $jadwal_pelajaran
      * @return \Illuminate\Http\Response
      */
-    public function edit(jadwal_pelajaran $jadwal_pelajaran)
+    public function edit( $jad_id)
     {
         //
+        $jadwal = jadwal_pelajaran::find($jad_id);
+        $guru = user::where('us_level','Guru')->get();
+        $kelas = kelas::all();
+        return view('jadwal.edit', compact('jadwal','guru','kelas'));
     }
 
     /**
@@ -67,9 +86,17 @@ class JadwalPelajaranController extends Controller
      * @param  \App\jadwal_pelajaran  $jadwal_pelajaran
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, jadwal_pelajaran $jadwal_pelajaran)
+    public function update(Request $request,  $jad_id)
     {
         //
+        $jadwal = jadwal_pelajaran::find($jad_id);
+        $jadwal->jad_kls_id = $request['jad_kls_id'];
+        $jadwal->jad_gr_id = $request['jad_gr_id'];
+        $jadwal->jad_hari = $request['jad_hari'];
+        $jadwal->jad_jam_pelajaran = $request['jad_jam_pelajaran'];
+        $jadwal->save();
+        return redirect('/jadwal');
+        
     }
 
     /**
