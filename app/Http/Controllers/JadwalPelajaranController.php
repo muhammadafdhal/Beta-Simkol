@@ -17,7 +17,8 @@ class JadwalPelajaranController extends Controller
     public function index()
     {
         //
-        $jadwal = jadwal_pelajaran::join('kelas','kls_id','=','jadwal_pelajarans.jad_kls_id')->join('users','id','=','jadwal_pelajarans.jad_gr_id')->get();
+        $jadwal = jadwal_pelajaran::join('kelas','kls_id','=','jadwal_pelajarans.jad_kls_id')->join('users','id','jad_gr_id')->get();
+        // dd($jadwal);
         return view('jadwal.index', compact('jadwal'));
     }
 
