@@ -26,10 +26,10 @@
                     </tr>
                 </thead>
                 @php
-                    $no=1;
+                $no=1;
                 @endphp
                 @foreach ($absen as $t)
-        
+
                 <tbody>
                     <tr>
                         <td>{{$no++}}.</td>

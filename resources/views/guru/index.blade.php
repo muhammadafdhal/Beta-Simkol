@@ -6,6 +6,16 @@
     <div class="card-body">
         <h4 class="card-title">Data Tabel Guru</h4>
         <div class="table-responsive m-t-40">
+
+            @if (session('status-guru'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('status-guru') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @endif
+            
             <div class="row button-group">
                 <div class="col-lg-2 col-md-4">
                     <a href="{{route('guru.create')}}" class="btn btn-rounded btn-block btn-info">Tambah Guru</a>
@@ -29,10 +39,10 @@
                     </tr>
                 </thead>
                 @php
-                    $no=1;
+                $no=1;
                 @endphp
                 @foreach ($guru as $t)
-        
+
                 <tbody>
                     <tr>
                         <td>{{$no++}}.</td>

@@ -17,7 +17,8 @@
     <!-- chartist CSS -->
     <link href="{{ asset('assets/plugins/chartist-js/dist/chartist.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/chartist-js/dist/chartist-init.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css') }}"
+        rel="stylesheet">
     <!--This page css - Morris CSS -->
     <link href="{{ asset('assets/plugins/c3-master/c3.min.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
@@ -59,14 +60,16 @@
                             <!-- Dark Logo icon -->
                             <img src="{{ asset('assets/images/logo-icon.png') }}" alt="homepage" class="dark-logo" />
                             <!-- Light Logo icon -->
-                            <img src="{{ asset('assets/images/logo-light-icon.png') }}" alt="homepage" class="light-logo" />
+                            <img src="{{ asset('assets/images/logo-light-icon.png') }}" alt="homepage"
+                                class="light-logo" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
                             <!-- dark Logo text -->
                             <img src="{{ asset('assets/images/logo-text.png') }}" alt="homepage" class="dark-logo" />
                             <!-- Light Logo text -->
-                            <img src="{{ asset('assets/images/logo-light-text.png') }}" class="light-logo" alt="homepage" /></span>
+                            <img src="{{ asset('assets/images/logo-light-text.png') }}" class="light-logo"
+                                alt="homepage" /></span>
                     </a>
                 </div>
                 <!-- ============================================================== -->
@@ -110,16 +113,20 @@
                                             <div class="carousel-inner" role="listbox">
                                                 <div class="carousel-item active">
                                                     <div class="container"> <img class="d-block img-fluid"
-                                                            src="{{ asset('assets/images/big/img1.jpg') }}" alt="First slide"></div>
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <div class="container"><img class="d-block img-fluid"
-                                                            src="{{ asset('assets/images/big/img2.jpg') }}" alt="Second slide">
+                                                            src="{{ asset('assets/images/big/img1.jpg') }}"
+                                                            alt="First slide">
                                                     </div>
                                                 </div>
                                                 <div class="carousel-item">
                                                     <div class="container"><img class="d-block img-fluid"
-                                                            src="{{ asset('assets/images/big/img3.jpg') }}" alt="Third slide"></div>
+                                                            src="{{ asset('assets/images/big/img2.jpg') }}"
+                                                            alt="Second slide">
+                                                    </div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <div class="container"><img class="d-block img-fluid"
+                                                            src="{{ asset('assets/images/big/img3.jpg') }}"
+                                                            alt="Third slide"></div>
                                                 </div>
                                             </div>
                                             <a class="carousel-control-prev" href="#carouselExampleControls"
@@ -381,11 +388,12 @@
                                         </div>
                                     </li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
+                                    <li><a href="/profil/{{Auth::user()->id}}"><i class="ti-user"></i> My Profile</a>
+                                    </li>
                                     <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
                                     <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
+                                    <li><a href="/set_password/{{Auth::user()->id}}"><i class="ti-settings"></i> Account Setting</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();"><i
@@ -451,48 +459,66 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="nav-small-cap">PERSONAL</li>
-                        <li> <a href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
+                        <li> <a href="#" aria-expanded="false"><i class="fa fa-home"></i><span
                                     class="hide-menu">Dashboard </span></a>
                         </li>
+
+                        @if (Auth::user()->us_level == "Admin")
+
+
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
-                                    class="mdi mdi-laptop-windows"></i><span class="hide-menu">Data Master</span></a>
+                                    class="fa fa-database"></i><span class="hide-menu">Data Master</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="/guru">Guru</a></li>
                                 <li><a href="/siswa">Siswa</a></li>
                                 <li><a href="/tamu">Tamu</a></li>
                             </ul>
                         </li>
-                        <li> <a href="/mata-pelajaran" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Mata
+
+
+                        <li> <a href="/mata-pelajaran" aria-expanded="false"><i class="fa fa-book"></i><span
+                                    class="hide-menu">Mata
                                     Pelajaran </span></a>
                         </li>
 
-                        <li> <a href="/materi" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
-                                    class="hide-menu">Materi </span></a>
-                        </li>
-
-                        <li> <a href="/jadwal" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
-                                    class="hide-menu">Jadwal Pelajaran </span></a>
-                        </li>
-
-                        <li> <a href="/absen" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
-                                    class="hide-menu">Absen Siswa </span></a>
-                        </li>
-
-                        <li> <a href="/kelas" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
+                        <li> <a href="/kelas" aria-expanded="false"><i class="fa fa-university"></i><span
                                     class="hide-menu">Kelas </span></a>
                         </li>
 
-                        <li> <a href="/nilai" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
-                                    class="hide-menu">Nilai </span></a>
-                        </li>
-
-                        <li> <a href="/informasi" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Info
+                        <li> <a href="/informasi" aria-expanded="false"><i class="fa fa-info-circle"></i><span
+                                    class="hide-menu">Info
                                     Sekolah </span></a>
                         </li>
 
-                        <li> <a href="/galeri" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
+                        <li> <a href="/galeri" aria-expanded="false"><i class="fa fa-picture-o"></i><span
                                     class="hide-menu">Galeri </span></a>
                         </li>
+
+                        @endif
+
+                        @if(Auth::user()->us_level == "Admin" || Auth::user()->us_level =="Guru")
+
+                        <li> <a href="/materi" aria-expanded="false"><i class="fa fa-file-text"></i><span
+                                    class="hide-menu">Materi </span></a>
+                        </li>
+
+                        <li> <a href="/jadwal" aria-expanded="false"><i class="fa fa-list-alt"></i><span
+                                    class="hide-menu">Jadwal Pelajaran </span></a>
+                        </li>
+
+                        <li> <a href="/absen" aria-expanded="false"><i class="fa fa-users"></i><span
+                                    class="hide-menu">Absen Siswa </span></a>
+                        </li>
+                        @endif
+
+                        @if(Auth::user()->us_level == "Siswa" || Auth::user()->us_level =="Guru")
+
+                        <li> <a href="/nilai" aria-expanded="false"><i class="fa fa-graduation-cap"></i><span
+                                    class="hide-menu">Nilai </span></a>
+                        </li>
+
+                        @endif
+
 
 
 
@@ -698,7 +724,8 @@
     <!-- ============================================================== -->
     <!-- chartist chart -->
     <script src="{{ asset('assets/plugins/chartist-js/dist/chartist.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js') }}">
+    </script>
     <!--c3 JavaScript -->
     <script src="{{ asset('assets/plugins/d3/d3.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/c3-master/c3.min.js') }}"></script>
@@ -713,7 +740,7 @@
     <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
-    
+
     <script>
         $(document).ready(function () {
             $('#myTable').DataTable();
@@ -767,7 +794,7 @@
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
-    <script src="assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+    <script src="{{ asset('assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
 </body>
 
 </html>
