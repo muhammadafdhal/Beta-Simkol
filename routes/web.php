@@ -8,7 +8,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/guru', 'GuruController');
-Route::resource('/siswa', 'SiswaController');
+Route::resource('/siswa', 'SiswaController'); 
 Route::resource('/tamu', 'BukutamuController');
 Route::resource('/materi', 'MateriController');
 Route::resource('/mata-pelajaran', 'MapelController');
@@ -17,6 +17,15 @@ Route::resource('/jadwal','JadwalPelajaranController');
 Route::resource('/absen','AbsensiswaController');
 Route::resource('/informasi','InfosekolahController');
 Route::resource('/nilai','NilaiController');
+
+//edit profil
+Route::get('/profil/{id}','ProfilController@edit');
+Route::patch('/profil/{id}/save','ProfilController@update');
+
+//setting password
+Route::get('/set_password/{id}','ProfilController@edit_password');
+Route::patch('/set_password/{id}/save','ProfilController@update_password');
+
 
 //route galeri
 Route::resource('/galeri','GaleriController');
@@ -34,4 +43,4 @@ Route::get('/storage/gl/{namafile}', function ($namafile) {
     $response->header("Content-type", $type);
 
     return $response;
-});
+})->middleware('auth');
