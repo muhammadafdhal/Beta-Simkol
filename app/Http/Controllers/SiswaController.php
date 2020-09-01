@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\user;
-use App\siswa;
-use App\kelas;
+use App\Http\Model\siswa;
+use App\Http\Model\kelas;
 use Hash;
 
 use Illuminate\Http\Request;

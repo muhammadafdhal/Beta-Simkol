@@ -34,6 +34,21 @@ class GuruController extends Controller
     
     public function store(Request $request)
     {
+        $request->validate([
+            'us_nip_nisn' => 'required|size:10',
+            'email' => 'required|email',
+            'username' => 'required',
+            'name' => 'required',
+            'us_jk' => 'required',
+            'us_gr_jabatan' => 'required',
+            'us_gr_golongan' => 'required',
+            'us_alamat' => 'required',
+            'us_telp' => 'required|regex:/(01)[0-9]{9}/',
+            'us_keterangan' => 'required',
+            'us_mp_id' => 'required'
+
+
+        ]);
         // cara 1 =======================================
         // $guru = new user();
         // $guru->email=$request['email'];
@@ -78,9 +93,11 @@ class GuruController extends Controller
     }
 
     
-    public function show( $nilai)
+    public function show( $id)
     {
         //
+        $guru = user::findOrFail($id);
+        return view('guru.detail', compact('guru'));
     }
 
     

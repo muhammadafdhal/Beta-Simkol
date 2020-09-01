@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\mapel;
+use App\Http\Model\mapel;
 use Illuminate\Http\Request;
 
 class MapelController extends Controller
@@ -46,11 +46,20 @@ class MapelController extends Controller
     public function store(Request $request)
     {
         //
-        $mapel = new mapel;
-        $mapel->mp_nama = $request['mp_nama'];
-        $mapel->mp_ket = $request['mp_ket'];
-        $mapel->save();
-        return redirect('/mata-pelajaran');
+        // $mapel = new mapel;
+        // $mapel->mp_nama = $request['mp_nama'];
+        // $mapel->mp_ket = $request['mp_ket'];
+        // $mapel->save();
+
+        $request->validate([
+            'mp_nama' => 'required',
+            'mp_ket' => 'required'
+
+        ]);
+
+        mapel::create($request->all());
+
+        return redirect('/mata-pelajaran')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -84,7 +93,7 @@ class MapelController extends Controller
      * @param  \App\mapel  $mapel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $mp_id)
+    public function update(Request $request, $mp_id)
     {
         //
         $mapel = mapel::find($mp_id);
@@ -100,11 +109,13 @@ class MapelController extends Controller
      * @param  \App\mapel  $mapel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(mapel $mp_id)
+    public function destroy($mp_id)
     {
         //
-        $mapel = mapel::find($mp_id);
-        $mapel->destroy();
+        $mapel = mapel::findOrFail($mp_id);
+        $mapel->delete();
+        
+        
         return redirect('/mata-pelajaran');
 
     }

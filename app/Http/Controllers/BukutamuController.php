@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\bukutamu;
+use App\Http\Model\bukutamu;
 use Illuminate\Http\Request;
 
 class BukutamuController extends Controller

@@ -7,6 +7,7 @@
         <div class="card-body">
             <h4 class="card-title">Edit Data Siswa</h4>
             <form class="form" action="{{route('mata-pelajaran.update', $mapel->mp_id)}}" method="POST">
+                @method('patch')
                 @csrf
                 <input type="hidden" name="_method" value="PATCH">
                 <div class="form-group m-t-40 row">

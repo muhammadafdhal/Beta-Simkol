@@ -60,7 +60,7 @@
                         <input id="checkbox-signup" type="checkbox" {{ old('remember') ? 'checked' : '' }}>
                         <label for="checkbox-signup"> Remember me </label>
                     </div>
-                    <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i
+                    <a href="{{ route('password.request') }}" id="to-recover" class="text-dark pull-right"><i
                             class="fa fa-lock m-r-5"></i> Forgot pwd?</a>
                 </div>
             </div>
